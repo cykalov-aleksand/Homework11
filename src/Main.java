@@ -33,16 +33,19 @@ class Main {
         if (deliveryDistance <= 20) {
             byte deliveryDays = 1;
             message = "потребуется дней на доставку: " + deliveryDays;
+            return message;
         } else if (deliveryDistance <= 60) {
             byte deliveryDays = 2;
             message = "Потребуется дней на доставку: " + deliveryDays;
+            return message;
         } else if (deliveryDistance <= 100) {
             byte deliveryDays = 3;
             message = "Потребуется дней на достаку: " + deliveryDays;
+            return message;
         } else {
             message = "Доставки нет";
+            return message;
         }
-        return message;
     }
 
     public static String checkDeliveryTime2(short deliveryDistance) {
