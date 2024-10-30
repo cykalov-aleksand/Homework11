@@ -11,23 +11,28 @@ class Main {
         }
     }
 
-    public static void DetermeningApplicationVersion(short clientDeviceYear, byte clientOs) {
+    public static void determeneApplicationVersion(short clientDeviceYear, byte clientOs) {
         int currentYear = LocalDate.now().getYear();
         System.out.println("clientOs = " + clientOs + "; clientDeviceYears =" + clientDeviceYear);
-        if (clientDeviceYear >= 2015 && clientDeviceYear < (short) currentYear) {
-            if (clientOs == 0) {
-                System.out.println("Установите версию приложения для IOS по ссылке");
-            } else {
-                System.out.println("Установите версию приложения для ANDROID по ссылке");
-            }
-        } else if (clientOs == 0) {
-            System.out.println("Установите облегченную версию приложения для IOS по ссылке");
-        } else {
-            System.out.println("Установите облегченную версию приложения для ANDROID по ссылке");
+        switch (clientOs) {
+            case 0:
+                if (clientDeviceYear >= 2015 && clientDeviceYear < (short) currentYear) {
+                    System.out.println("Установите версию приложения для IOS по ссылке");
+                } else {
+                    System.out.println("Установите облегченную версию приложения для IOS по ссылке");
+                }
+                break;
+            case 1:
+                if (clientDeviceYear >= 2015 && clientDeviceYear < (short) currentYear) {
+                    System.out.println("Установите версию приложения для ANDROID по ссылке");
+                } else {
+                    System.out.println("Установите облегченную версию приложения для ANDROID по ссылке");
+                }
+                break;
         }
     }
 
-    public static String checkDeliveryTime(short deliveryDistance) {
+    public static String calculateTheDeliveryTime(short deliveryDistance) {
         String message;
         System.out.println("Если расстояние равно " + deliveryDistance + " км.");
         if (deliveryDistance <= 20) {
@@ -48,7 +53,7 @@ class Main {
         }
     }
 
-    public static String checkDeliveryTime2(short deliveryDistance) {
+    public static String calculateTheDeliveryTime2(short deliveryDistance) {
         System.out.println("Если расстояние равно " + deliveryDistance + " км.");
         byte deliveryDays = 0;
         String information;
@@ -83,29 +88,27 @@ class Main {
         short inputYearRelease = 2023;
         System.out.println("\n---------------------" + inputYearRelease + "г.-----------------");
         byte inputSystem = 1;
-        DetermeningApplicationVersion(inputYearRelease, inputSystem);
+        determeneApplicationVersion(inputYearRelease, inputSystem);
         inputSystem = 0;
-        DetermeningApplicationVersion(inputYearRelease, inputSystem);
+        determeneApplicationVersion(inputYearRelease, inputSystem);
         inputYearRelease = 2014;
         System.out.println("\n---------------------" + inputYearRelease + "г.-----------------");
         inputSystem = 1;
-        DetermeningApplicationVersion(inputYearRelease, inputSystem);
+        determeneApplicationVersion(inputYearRelease, inputSystem);
         inputSystem = 0;
-        DetermeningApplicationVersion(inputYearRelease, inputSystem);
+        determeneApplicationVersion(inputYearRelease, inputSystem);
         inputYearRelease = 2024;
         System.out.println("\n---------------------" + inputYearRelease + "г.-----------------");
         inputSystem = 1;
-        DetermeningApplicationVersion(inputYearRelease, inputSystem);
+        determeneApplicationVersion(inputYearRelease, inputSystem);
         inputSystem = 0;
-        DetermeningApplicationVersion(inputYearRelease, inputSystem);
+        determeneApplicationVersion(inputYearRelease, inputSystem);
         System.out.println("\n------------------Задание 3---------------------");
         System.out.println("Вариант решения без условия switch:");
         short distance = 60;
-        System.out.println(checkDeliveryTime(distance));
+        System.out.println(calculateTheDeliveryTime(distance));
         System.out.println("\nВариант решения c условием switch:");
         distance = 110;
-        System.out.println(checkDeliveryTime2(distance));
-
-
+        System.out.println(calculateTheDeliveryTime2(distance));
     }
 }
