@@ -29,6 +29,8 @@ class Main {
                     System.out.println("Установите облегченную версию приложения для ANDROID по ссылке");
                 }
                 break;
+            default:
+                System.out.println("Ошибка ввода названия операционной системы");
         }
     }
 
